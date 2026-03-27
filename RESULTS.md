@@ -57,7 +57,7 @@ All metrics on the **held-out 20% test set**.
 | L²ViT (pretrain→FT) | **0.8985** | **0.9553** | **26.05** | **0.5618** |
 | Δ | +3.15% | +0.022 | −21.5% | +0.229 |
 
-Pretraining improves every metric. Figures: `roc_l2vit_comparison.png`, `cm_l2vit_comparison.png`, `mass_l2vit_comparison.png`.
+Pretraining improves every metric. Figures: `figures/task_2h/roc_l2vit_comparison.png`, `figures/task_2h/cm_l2vit_comparison.png`, `figures/task_2h/mass_l2vit_comparison.png`.
 
 ---
 
@@ -73,7 +73,7 @@ Pretraining improves every metric. Figures: `roc_l2vit_comparison.png`, `cm_l2vi
 
 - Scratch AUC **0.9334** vs finetune **0.9553** (+0.022)
 - Finetune produces a more balanced confusion matrix — pretraining on unlabelled data forces the encoder to learn general jet structure before class labels are introduced
-- Both plots in `cm_l2vit_comparison.png`, ROC in `roc_l2vit_comparison.png`
+- Both plots in `figures/task_2h/cm_l2vit_comparison.png`, ROC in `figures/task_2h/roc_l2vit_comparison.png`
 
 ---
 
@@ -82,7 +82,7 @@ Pretraining improves every metric. Figures: `roc_l2vit_comparison.png`, `cm_l2vi
 - Scratch MAE **33.18 GeV**, R² **0.3328** — regression head overfit; limited predictive power
 - Finetune MAE **26.05 GeV** (−21.5%), R² **0.5618** — meaningfully better
 
-The mass distribution is bimodal (~80 GeV and ~200 GeV). L1 loss targets the median, which falls in the valley between modes — neither class is well-predicted at that point. For this dataset, MSE loss would give lower reported MAE. The switch to L1 was reasonable in principle but hurt the regression metric here. Mass distribution plots in `mass_l2vit_comparison.png`.
+The mass distribution is bimodal (~80 GeV and ~200 GeV). L1 loss targets the median, which falls in the valley between modes — neither class is well-predicted at that point. For this dataset, MSE loss would give lower reported MAE. The switch to L1 was reasonable in principle but hurt the regression metric here. Mass distribution plots in `figures/task_2h/mass_l2vit_comparison.png`.
 
 ---
 
