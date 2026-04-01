@@ -40,19 +40,32 @@ Evaluated on a held-out 20% test split, stratified by class, never seen during t
 |---|---|---|---|---|
 | L²ViT (pretrain → finetune) | **0.8985** | **0.9553** | **26.05** | **0.5618** |
 | L²ViT (scratch) | 0.8670 | 0.9334 | 33.18 | 0.3328 |
+| PolaFormer (scratch) | 0.864 | — | — | — |
+| PolaFormer (pretrain → finetune) | 0.813 | — | — | — |
+| VanillaViT (pretrain → finetune) | 0.838 | — | — | — |
+| VanillaViT (scratch) | ~0.874 | — | — | — |
 
-Pretraining improves every metric. The scratch model overfits severely (train acc → 100% by epoch 28, val loss diverges to 1.14); the finetune model converges cleanly with train acc ~93%.
+Pretraining improves every metric for L²ViT. The scratch model overfits severely (train acc → 100%, val loss diverges); the finetune model converges cleanly at ~93% train acc. See [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md) for why pretraining hurt PolaFormer and VanillaViT.
 
-| | ROC | Confusion Matrix | Mass Distribution |
-|---|---|---|---|
-| | ![ROC](figures/task_2h/roc_l2vit_comparison.png) | ![CM](figures/task_2h/cm_l2vit_comparison.png) | ![Mass](figures/task_2h/mass_l2vit_comparison.png) |
+**L²ViT — Scratch vs Finetune (Task 2h)**
 
-Full analysis: [`docs/RESULTS.md`](docs/RESULTS.md)
-Cross-architecture comparison: [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md)
+| ROC | Confusion Matrix | Mass Distribution |
+|---|---|---|
+| ![ROC](figures/task_2h/roc_l2vit_comparison.png) | ![CM](figures/task_2h/cm_l2vit_comparison.png) | ![Mass](figures/task_2h/mass_l2vit_comparison.png) |
 
-**Training curves — all 6 runs (WandB):**
+**All models — ROC, Confusion Matrix, Mass Distribution**
+
+![All models ROC](figures/experiments/roc_curves.png)
+
+![All models confusion](figures/experiments/confusion_matrices.png)
+
+![All models mass](figures/experiments/mass_distributions.png)
+
+**Training curves — all 6 runs (WandB)**
 
 ![Training curves](figures/experiments/wandb1.png)
+
+Full L²ViT analysis: [`docs/RESULTS.md`](docs/RESULTS.md)
 
 ---
 
