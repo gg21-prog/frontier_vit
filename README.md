@@ -43,8 +43,16 @@ Evaluated on a held-out 20% test split, stratified by class, never seen during t
 
 Pretraining improves every metric. The scratch model overfits severely (train acc → 100% by epoch 28, val loss diverges to 1.14); the finetune model converges cleanly with train acc ~93%.
 
+| | ROC | Confusion Matrix | Mass Distribution |
+|---|---|---|---|
+| | ![ROC](figures/task_2h/roc_l2vit_comparison.png) | ![CM](figures/task_2h/cm_l2vit_comparison.png) | ![Mass](figures/task_2h/mass_l2vit_comparison.png) |
+
 Full analysis: [`docs/RESULTS.md`](docs/RESULTS.md)
 Cross-architecture comparison: [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md)
+
+**Training curves — all 6 runs (WandB):**
+
+![Training curves](figures/experiments/wandb1.png)
 
 ---
 
