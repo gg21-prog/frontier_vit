@@ -38,14 +38,14 @@ Evaluated on a held-out 20% test split, stratified by class, never seen during t
 
 | Model | Accuracy | AUC | MAE (GeV) | R² |
 |---|---|---|---|---|
-| L²ViT (pretrain → finetune) | **0.8985** | **0.9553** | **26.05** | **0.5618** |
-| L²ViT (scratch) | 0.8670 | 0.9334 | 33.18 | 0.3328 |
-| PolaFormer (scratch) | 0.864 | — | — | — |
-| PolaFormer (pretrain → finetune) | 0.813 | — | — | — |
-| VanillaViT (pretrain → finetune) | 0.838 | — | — | — |
-| VanillaViT (scratch) | ~0.874 | — | — | — |
+| L²ViT (pretrain → finetune) | **0.8905** | **0.9553** | 26.05 | 0.5618 |
+| L²ViT (scratch) | 0.8670 | 0.9334 | 33.10 | 0.3328 |
+| PolaFormer (scratch) | 0.8715 | 0.9414 | 42.95 | -0.026 |
+| PolaFormer (pretrain → finetune) | 0.8320 | 0.9005 | **18.92** | **0.7372** |
+| VanillaViT (scratch) | 0.8665 | 0.9277 | 23.01 | 0.6073 |
+| VanillaViT (pretrain → finetune) | 0.8305 | 0.8973 | 23.24 | 0.6243 |
 
-Pretraining improves every metric for L²ViT. The scratch model overfits severely (train acc → 100%, val loss diverges); the finetune model converges cleanly at ~93% train acc. See [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md) for why pretraining hurt PolaFormer and VanillaViT.
+L²ViT finetune wins on classification (AUC 0.9553). PolaFormer finetune has the best regression by a wide margin (MAE 18.92 GeV, R² 0.7372) despite weaker classification — pretraining appears to have pushed its encoder toward mass-predictive features at the expense of class separation. See [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md) for analysis.
 
 **L²ViT — Scratch vs Finetune (Task 2h)**
 
