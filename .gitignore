@@ -1,5 +1,7 @@
 *.h5
+.claude/
 wandb/
+.venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
@@ -8,3 +10,4 @@ __pycache__/
 results_*/
 history_*.json
 IMPLEMENTATION_SPEC.md
+pretrain_*.csv
